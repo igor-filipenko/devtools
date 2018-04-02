@@ -1,0 +1,8 @@
+#!/bin/bash
+
+source $HOME/devtools/share/common.sh
+
+request_sudo
+
+echo "Unmounting centrum..." && sudo umount -f /srv/centrum && echo "OK" || echo "FAIL"
+echo "Unmounting retail..." && sudo umount -f /srv/retail && echo "OK" || echo "FAIL"

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+source $HOME/devtools/share/common.sh
+
+VBoxManage startvm $CASH_VM --type headless

@@ -1,0 +1,38 @@
+#!/bin/bash
+
+source $HOME/devtools/share/common.sh
+
+MOUNTED="[MOUNTED]"
+UNMOUNTED="[UNMOUNTED]"
+RUNNING="[RUNNING]"
+STOPPED="[STOPPED]"
+
+function check_mounted
+{
+    if mount | grep $1 > /dev/null; then
+        echo $MOUNTED
+    else
+        echo $UNMOUNTED
+    fi
+}
+
+function check_running
+{
+    if VBoxManage list runningvms | grep $1 > /dev/null; then
+        echo $RUNNING
+    else
+        echo $STOPPED
+    fi
+}
+
+MOUNTED_CENTRUM=$(check_mounted $MOUNT_PATH/centrum)
+MOUNTED_RETAIL=$(check_mounted $MOUNT_PATH/retail)
+MOUNTED_CASH=$(check_mounted $MOUNT_PATH/cash)
+
+RUNNING_CENTRUM=$(check_running $CENTRUM_VM)
+RUNNING_RETAIL=$(check_running $RETAIL_VM)
+RUNNING_CASH=$(check_running $CASH_VM)
+
+echo -e "CENTRUM\t $CENTRUM_IP\t $MOUNTED_CENTRUM\t $RUNNING_CENTRUM"
+echo -e "RETAIL\t $RETAIL_IP\t $MOUNTED_RETAIL\t $RUNNING_RETAIL"
+echo -e "CASH\t $CASH_IP\t $MOUNTED_CASH\t $RUNNING_CASH"

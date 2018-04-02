@@ -1,0 +1,4 @@
+#!/bin/bash
+
+set-mount-centrum
+set-mount-retail

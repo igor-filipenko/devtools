@@ -1,0 +1,15 @@
+#!/bin/bash
+
+source $HOME/devtools/share/common.sh
+
+IP=$1
+if [ -z $IP ]
+then
+    IP=$CASH_IP
+else
+    shift
+fi
+
+request_sudo
+
+echo "Mounting cash $IP..." && sudo mount -t cifs //$IP/storage/crystal-cash /srv/cash -o username=tc,password=$PASSWORD && echo "OK" || echo "FAIL"

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+source $HOME/devtools/share/common.sh
+
+request_sudo
+
+echo "Umounting cash..." && sudo umount -f /srv/cash && echo "OK" || echo "FAIL"

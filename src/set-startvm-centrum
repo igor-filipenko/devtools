@@ -1,0 +1,5 @@
+#!/bin/bash
+
+source $HOME/devtools/share/common.sh
+
+VBoxManage startvm $CENTRUM_VM --type headless

@@ -1,0 +1,32 @@
+#!/bin/bash
+
+source $HOME/devtools/share/common.sh
+
+function unpack-ear
+{
+    DEPLOYMENTS_PATH="$MOUNT_PATH/$1/deployments"
+
+    if [ ! -d "$DEPLOYMENTS_PATH/Set10.ear" ]
+    then
+        mv $DEPLOYMENTS_PATH/Set10.ear $TEMP_PATH/Set10.ear.$1 && \
+        mkdir $DEPLOYMENTS_PATH/Set10.ear && \
+        unzip $TEMP_PATH/Set10.ear.$1 -d $DEPLOYMENTS_PATH/Set10.ear
+    fi
+}
+
+function unpack-flex-war
+{
+    DEPLOYMENTS_PATH="$MOUNT_PATH/$1/deployments"
+
+    if [ ! -d "$DEPLOYMENTS_PATH/Set10.ear/FLEX.war" ]
+    then
+        mv $DEPLOYMENTS_PATH/Set10.ear/FLEX.war $TEMP_PATH/FLEX.war.$1 && \
+        mkdir $DEPLOYMENTS_PATH/Set10.ear/FLEX.war && \
+        unzip $TEMP_PATH/FLEX.war.$1 -d $DEPLOYMENTS_PATH/Set10.ear/FLEX.war
+    fi
+}
+
+unpack-ear centrum
+unpack-ear retail
+unpack-flex-war centrum
+unpack-flex-war retail

@@ -1,0 +1,48 @@
+
+include $(HOME)/devtools/share/setretail10.mk
+
+# Common
+$(eval $(call JAR,DataStructsModule,SetRetail10_Commons/DataStructsModule,/,modules/dataStruct))
+$(eval $(call JAR,SET-LoyalStructures,SetRetail10_Commons/Loyal/SET-LoyalStructures,/,modules/loyalty))
+$(eval $(call JAR,SET-LoyalCalculation,SetRetail10_Commons/Loyal/SET-LoyalCalculation,/,modules/loyalty))
+$(eval $(call JAR,loyalty-SET-Discounts-ConditionPlugin-SaleGroup,SetRetail10_Commons/Loyal/SET-Discounts-ConditionPlugin-SaleGroup,/lib/,modules/loyalty/plugins))
+$(eval $(call JAR,loyalty-SET-Discounts-ConditionPlugin-Group,SetRetail10_Commons/Loyal/SET-Discounts-ConditionPlugin-Group,/lib,modules/loyalty/plugins))
+$(eval $(call JAR,loyalty-SET-Discounts-ActionResultPlugin-Scanner-Messages,SetRetail10_Commons/Loyal/SET-Discounts-ActionResultPlugin-Scanner-Messages,/lib,modules/loyalty/plugins))
+$(eval $(call JAR,loyalty-SET-Discounts-ActionResultPlugin-Bonus,SetRetail10_Commons/Loyal/SET-Discounts-ActionResultPlugin-Bonus,/lib,modules/loyalty/plugins))
+
+# Server
+$(eval $(call JAR,SET-Report,SetRetail10_Commons/SET-Report,/,))
+$(eval $(call JAR,SET-Report-API,SetRetail10_Commons/SET-Report-API,/lib,))
+$(eval $(call JAR,SetWallet-Integration,SetRetail10_Server/RetailX/SetWallet-Integration,/,))
+$(eval $(call JAR,SET-ERPIntegration,SetRetail10_Server/RetailX/SET-ERPIntegration,/,))
+$(eval $(call JAR,SET-PrintPriceTags,SetRetail10_Server/RetailX/SET-PrintPriceTags,/,))
+$(eval $(call JAR,SET-Products,SetRetail10_Server/RetailX/SET-Products,/,))
+$(eval $(call JAR,SET-Cards,SetRetail10_Server/Cards/SET-Cards,/,))
+$(eval $(call JAR,SET-Cards-PresentCards,SetRetail10_Server/Cards/SET-Cards-PresentCards,/,))
+$(eval $(call JAR,SET-Cards-InternalCards,SetRetail10_Server/Cards/SET-Cards-InternalCards,/,))
+$(eval $(call JAR,SET-Cards-Coupons,SetRetail10_Server/Cards/SET-Cards-Coupons,/,))
+$(eval $(call JAR,ServerDS,SetRetail10_Server/RetailX/ServerDS,/,))
+$(eval $(call JAR,SET-Discounts,SetRetail10_Server/Discounts/SET-Discounts,/,))
+$(eval $(call WAR,FLMS-DiscountProcessing,SetRetail10_Server/Discounts/FLMS-Solution/FLMS-DiscountProcessing,/))
+
+# Cash
+$(eval $(call JAR,techProcess,SetRetail10_Cash/modules/TechProcess,,modules/techProcess))
+$(eval $(call JAR,document,SetRetail10_Cash/modules/Check,,modules/document))
+$(eval $(call JAR,fiscalPrinter,SetRetail10_Cash/modules/FiscalPrinterModule,,modules/fiscalPrinter))
+$(eval $(call JAR,visualization,SetRetail10_Cash/modules/VisualInterface,,modules/visualization))
+$(eval $(call JAR,cards,SetRetail10_Cash/modules/Cards,,modules/cards))
+$(eval $(call JAR,CashDS,SetRetail10_Cash/modules/CashDS,,modules/dataStruct))
+$(eval $(call JAR,registry,SetRetail10_Cash/modules/Registry,,modules/registry))
+$(eval $(call JAR,cards-presentCards,SetRetail10_Commons/SET-Cards-PresentCards,,modules/cards/plugins))
+$(eval $(call JAR,ml-bridge,SetRetail10_Cash/modules/MLBridge,,modules/mlBridge))
+$(eval $(call JAR,siebel-bridge,SetRetail10_Cash/modules/SiebelBridge,,modules/SiebelBridge))
+$(eval $(call JAR,informix-bridge,SetRetail10_Cash/modules/InformixBridge,,modules/informixBridge))
+$(eval $(call JAR,informixEmulator,SetRetail10_Util/InformixEmulator,,modules/informixBridge))
+$(eval $(call JAR,visualizationTouchComponents,SetRetail10_Cash_Touch/VisualizationTouchComponents,,modules/visualization))
+$(eval $(call JAR,loyalbridge,SetRetail10_Cash/modules/LoyalBridgeModule,,modules/loyalty))
+$(eval $(call JAR,loyalty-cash-api,SetRetail10_Cash/plugins/LoyalCashApi,,modules/loyalty/plugins))
+$(eval $(call JAR,loyalty-cash,SetRetail10_Cash/plugins/LoyalCashPlugin,,modules/loyalty/plugins))
+$(eval $(call JAR,loy-provider-set10,SetRetail10_Cash/plugins/LoyalCashSet,,modules/loyalty/plugins))
+
+# Lenta
+$(eval $(call JAR,lentaFiscalPrinter,customers/Lenta/LentaFiscalPrinterModule,,modules/fiscalPrinter))

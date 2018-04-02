@@ -1,0 +1,7 @@
+#!/bin/bash
+
+source $HOME/devtools/share/common.sh
+
+set_default_ip $RETAIL_IP
+
+PGPASSWORD="postgres" psql -U postgres -h $IP $@

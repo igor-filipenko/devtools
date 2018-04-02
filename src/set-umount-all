@@ -1,0 +1,6 @@
+#!/bin/bash
+
+source $HOME/devtools/share/common.sh
+
+set-umount-servers
+set-umount-cash

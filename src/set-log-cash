@@ -1,0 +1,5 @@
+#!/bin/bash
+
+source $HOME/devtools/share/common.sh
+
+tail -f $MOUNT_PATH/cash/logs/root.log

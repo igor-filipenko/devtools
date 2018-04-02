@@ -1,0 +1,5 @@
+#!/bin/bash
+
+source $HOME/devtools/share/common.sh
+
+PGPASSWORD="postgres" psql -U postgres -h $1

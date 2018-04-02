@@ -1,0 +1,35 @@
+#!/bin/sh
+
+SERVER=$1
+if [ -z $SERVER ]
+then
+    echo "First need to be centrum or retail!"
+    exit
+fi
+shift
+
+BUILDFILE=$1
+if [ -z $BUILDFILE ]
+then
+    BUILDFILE="build.xml"
+else
+    shift
+fi
+
+BUILD_PATH=/srv/$SERVER/deployments/Set10.ear/FLEX.war
+VALIDATOR_PATH=$HOME/tmp/flex_protocol_validator
+
+export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64
+export ANT_HOME=$HOME/.sdkman/candidates/ant/1.9.7/
+
+mkdir -p $BUILD_PATH && \
+mkdir -p $VALIDATOR_PATH && \
+ant -buildfile $BUILDFILE \
+ -DFLEX_TEST_MODE=false -DPROTOCOL_VALIDATION_SKIP=true -DWITH_PGQ=false -DFLEX_OPTIMIZE=false -DSERVER=none -DFLEX_DEBUG=true -Dis.lenta=true \
+ -Dflex.sdk.dir=/opt/flexsdk -Dprotocol.validator.skip=true \
+ -Dbase.source.dir=$HOME/src/setretail10/SetRetail10_Server_GUI \
+ -Dprotocol.validator.report.dir=$VALIDATOR_PATH \
+ -Dbase.project.dir=$HOME/src/setretail10 \
+ -Dair.sdk.dir=/opt/airsdk \
+ -Dbase.build.dir=$BUILD_PATH \
+ $@

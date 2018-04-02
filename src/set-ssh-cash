@@ -1,0 +1,7 @@
+#!/bin/bash
+
+source $HOME/devtools/share/common.sh
+
+set_default_ip $CASH_IP
+
+sshpass -p $PASSWORD ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -oStrictHostKeyChecking=no tc@$IP $@

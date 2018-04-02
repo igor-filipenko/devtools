@@ -1,0 +1,5 @@
+#!/bin/bash
+
+source $HOME/devtools/share/common.sh
+
+VBoxManage startvm $RETAIL_VM --type headless

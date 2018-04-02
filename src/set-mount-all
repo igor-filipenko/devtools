@@ -1,0 +1,4 @@
+#!/bin/bash
+
+$HOME/devtools/bin/set-mount-server
+$HOME/devtools/bin/set-mount-cash

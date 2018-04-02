@@ -1,0 +1,13 @@
+#!/bin/bash
+
+source $HOME/devtools/share/common.sh
+
+IP=$1
+if [ -z $IP ]
+then
+    IP=$CENTRUM_IP
+else
+    shift
+fi
+
+chromium-browser --disk-cache-dir=/dev/null $IP:8090 >/dev/null 2>&1 &
