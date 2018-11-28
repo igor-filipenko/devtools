@@ -1,0 +1,20 @@
+#!/bin/bash
+
+SOURCE=$1
+shift
+
+OUTPUT=$1
+shift
+
+pushd $SOURCE
+mkdir -p $OUTPUT
+
+for path in $@
+do
+    pushd $path
+    gradle clean test jar
+    cp build/libs/*.jar $OUTPUT/
+    popd
+done
+
+popd

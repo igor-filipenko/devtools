@@ -1,0 +1,15 @@
+#!/bin/bash
+
+source $HOME/devtools/share/common.sh
+
+set_default_ip $CASH_IP
+
+DATABASE=$1
+DUMPFILE=$2
+
+export PGPASSWORD="postgres"
+
+dropdb --host $IP --username postgres $DATABASE
+createdb --host $IP --username postgres $DATABASE
+createlang --host $IP -U postgres plpgsql $DATABASE
+pg_restore --host $IP --username postgres --dbname $DATABASE --no-password  --verbose $DUMPFILE

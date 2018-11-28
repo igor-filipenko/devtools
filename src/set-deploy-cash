@@ -1,0 +1,3 @@
+#!/bin/bash
+
+set-ssh-cash cash restart

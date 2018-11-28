@@ -1,0 +1,15 @@
+#!/bin/bash
+
+source $HOME/devtools/share/common.sh
+
+set_default_ip $CENTRUM_IP
+
+pushd ~/tmp &>/dev/null && \
+sshpass -p "324012" scp root@$IP:/var/lib/jboss/standalone/licenses/license.c2v . && \
+java -jar $HOME/devtools/opt/HaspPrivate/HaspPrivate.jar -org lice2 -prod SETRETAIL10 -hid license.c2v -user 55 -cash 55 -scale 55 -lic license && \
+echo -e "Uploading new license...\n" && \
+sshpass -p "324012" scp license.v2c root@$IP:/var/lib/jboss/standalone/licenses/ && \
+echo -e "\t*" && \
+echo -e "\t* License for server on host $IP updated!" && \
+echo -e "\t*\n"
+popd &>/dev/null

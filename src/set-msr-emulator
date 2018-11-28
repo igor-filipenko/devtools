@@ -2,4 +2,6 @@
 
 source $HOME/devtools/share/common.sh
 
-java -cp $HOME/devtools/share/commons-lang-2.6.jar:$HOME/devtools/share/externalMSR-emulator.jar ru.crystals.pos.emsr.emulator.MSREmulatorClient --ip $CASH_IP --port 23220 --track "" "$1" "" ""
+set_default_ip $CASH_IP
+
+java -cp $HOME/devtools/share/commons-lang-2.6.jar:$HOME/devtools/share/externalMSR-emulator.jar ru.crystals.pos.emsr.emulator.MSREmulatorClient --ip $IP --port 23220 --track "" "$1" "" ""

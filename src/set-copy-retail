@@ -1,0 +1,10 @@
+#!/bin/bash
+
+source $HOME/devtools/share/common.sh
+
+set_default_ip $RETAIL_IP
+
+FILE=$1
+shift
+
+sshpass -p "324012" scp -o "StrictHostKeyChecking=no" $FILE root@$IP:$@

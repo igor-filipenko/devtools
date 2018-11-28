@@ -1,0 +1,8 @@
+#!/bin/bash
+
+DATABASES=("cards" "discount" "catalog" "cash")
+
+for db in "${DATABASES[@]}"
+do
+    set-db-restore $db $db.backup
+done
